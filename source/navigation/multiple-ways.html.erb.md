@@ -50,10 +50,14 @@ A breadcrumb navigation is usually positioned near the top of the page. As a nav
 
 ## Sitemap
 
-A sitemap is a list of all pages of a website. It provides a good way to get a feeling for the structure of the website and can help users to understand what the site contains and how content is organized. It also is an alternative to complex navigation bars.
+A sitemap is a list of all pages of a website. It provides a good way to get a feeling for the structure of the website and can help users to understand what the site contains and how content is organized. It also is an alternative to complex menu bars.
 
 Simple sitemaps just show an outline view, while more complex sitemaps might also show complex relationship data as well. If the site map is large, it can make sense to show some levels of the hierarchy only when demanded from the user. A sitemap needs to stay updated when a page is added or deleted, should link to all sections of the site, and present the organization of the web site. See the [W3C <abbr title="Web Accessibility Initiative">WAI</abbr> sitemap](http://www.w3.org/WAI/sitemap.html) for an example.
 
 ## Search
 
 A search option helps users to find content by entering certain keywords, which is often more efficient than going through the complete navigation and search for pages whose page title vaguely relates to the topic the user has in mind. A search functionality that spell-checks the entered terms and allows synonyms further increases its accessibility.
+
+## Multiple ways to activate functions in applications
+
+In addition to a menubar, similar functions can often be found in other sections of the application as well. For example functions can be activated by clicking icons, using the mouse context menu, or activating a keyboard shortcut.
