@@ -125,7 +125,7 @@ This approach is more robust. It allows the labels and form controls to be displ
 
 In left-to-right languages it is common to visually position labels to the right of radio buttons and checkboxes, and to the left or directly above other form fields. Following this practice increases the predictability and understandability of your form for all users.
 
-In general, placing labels above the form fields helps reduce horizontal scrolling for people using screen magnification and for mobile device users. However, the usefulness of this approach depends on other design aspects, such as the proximity of other nearby form fields and content, and needs to be assessed individually. The general aim should be to maintain a close visual relationship between the label and the form control.
+In general, placing labels above the form fields helps reduce horizontal scrolling for people using screen magnification and for mobile device users. However, the usefulness of this approach depends on other design aspects, such as the proximity of other nearby form fields and content, and needs to be assessed individually. The aim should be to maintain a close visual relationship between the label and the form control.
 
 ## Hiding labels
 {:.newex}
