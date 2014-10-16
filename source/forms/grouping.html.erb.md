@@ -9,19 +9,21 @@ wcag_techniques:
   - H71
 ---
 
-By grouping related form controls you have make your forms more understandable for all users. Group related form controls, both visually and within the code. Use the `<fieldset>` and `<legend>` elements to associate related form controls.
+Grouping related form controls makes forms more understandable for all users. Group them both visually and within the code. Use the `<fieldset>` and `<legend>` elements to associate related form controls.
 
 ## Associating related controls
 {:.newex}
 
-The `<fieldset>` element provides a container for related form elements, and the `<legend>` element acts like a heading to identify the group. In the example below there are three checkboxes that are all part of an opt-in function for receiving different types of information. The legend for this group of controls highlights the action that is common to all controls, and the fact that they are all optional.
+The `<fieldset>` element provides a container for related form elements, and the `<legend>` element acts like a heading to identify the group. In the example below there are three checkboxes that are all part of an opt-in function for receiving different types of information.
+
+The legend for a group of controls can also highlight common attributes of all controls, for example state the fact that all fields in the group are required.
 
 {::nomarkdown}
 <%= sample_start %>
 
 <form method="post" action="#">
 <fieldset>
-<legend>(Optional) I want to receive</legend>
+<legend>I want to receive</legend>
   <div>
     <input type="checkbox" name="newsletter" id="check_1"> <label for="check_1">The weekly newsletter</label>
   </div>
@@ -43,7 +45,7 @@ The `<fieldset>` element provides a container for related form elements, and the
 
 ~~~ html
 <fieldset>
-<legend>(Optional) I want to receive</legend>
+<legend>I want to receive</legend>
   <div>
     <input type="checkbox" name="newsletter" id="check_1">
     <label for="check_1">The weekly newsletter</label>

@@ -47,6 +47,8 @@ setTimeout(function(){
 
 var myCarousel = (function() {
 
+  "use strict";
+
   // Some variables for the instance of the carousel
   var carousel,
   slides,
@@ -55,13 +57,8 @@ var myCarousel = (function() {
   settings,
   timer,
   setFocus,
-  animationSuspended;
-
-  // Helper function for iterating through elements
-  function forEachElement(elements, fn) {
-    for (var i = 0; i < elements.length; i++)
-    fn(elements[i], i);
-  }
+  animationSuspended,
+  announceSlide = 'false';
 
   // Helper function for removing classes
   function removeClass(el, className) {
@@ -126,10 +123,11 @@ var myCarousel = (function() {
 
       slidenav.className = 'slidenav';
 
+      var li = document.createElement('li');
+
       if (settings.animate) {
 
         // Add Play/Pause button if the slider is animated
-        var li = document.createElement('li');
 
         if (settings.startAnimated) {
           li.innerHTML = '<button data-stop=true><span class="visuallyhidden">Stop Animation </span>￭</button>';
@@ -143,14 +141,13 @@ var myCarousel = (function() {
       if (settings.slidenav) {
 
         // Add button for each slide if slidenav = true
-        forEachElement(slides, function(el, i){
-          var li = document.createElement('li');
+        for (var i = slides.length - 1; i >= 0; i--) {
           var klass = (i===0) ? 'class="current" ' : '';
           var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Slide)</span>' : '';
 
           li.innerHTML = '<button '+ klass +'data-slide="' + i + '"><span class="visuallyhidden">News</span> ' + (i+1) + kurrent + '</button>';
           slidenav.appendChild(li);
-        });
+        }
       }
 
       // Register click event on the slidenav
@@ -181,14 +178,20 @@ var myCarousel = (function() {
     slides[0].parentNode.addEventListener('transitionend', function (event) {
       var slide = event.target;
       removeClass(slide, 'in-transition');
-      if (setFocus && hasClass(slide, 'current')) {
+      if (hasClass(slide, 'current')) {
         // Also, if the global setFocus variable is set
         // and the transition ended on the current slide,
         // set the focus on this slide.
-        // This is done if the user clicks a slidenav button.
-        slide.setAttribute('tabindex', '-1');
-        slide.focus();
-        setFocus = false;
+        if (setFocus) {
+          // This is done if the user clicks a slidenav button.
+          slide.setAttribute('tabindex', '-1');
+          slide.focus();
+          setFocus = false;
+        }
+        if (announceSlide) {
+          slide.removeAttribute('aria-live');
+          announceSlide = false;
+        }
       }
     });
 
@@ -255,10 +258,24 @@ var myCarousel = (function() {
     }
 
     // Add classes to the previous, next and current slide
-    slides[new_next].className = 'next slide' + ((transition == 'next') ? ' in-transition' : '');
-    slides[new_prev].className = 'prev slide' + ((transition == 'prev') ? ' in-transition' : '');
+    slides[new_next].className = 'next slide';
+    if (transition == 'next') {
+      slides[new_next].className = 'next slide in-transition';
+      slides[new_next].setAttribute('aria-hidden', 'true');
+    }
+
+    slides[new_prev].className = 'prev slide';
+    if (transition == 'prev') {
+      slides[new_prev].className = 'prev slide in-transition';
+      slides[new_next].setAttribute('aria-hidden', 'true');
+    }
 
     slides[new_current].className = 'current slide';
+    slides[new_current].removeAttribute('aria-hidden');
+
+    if (announceSlide) {
+      slides[new_current].setAttribute('aria-live', 'polite');
+    }
 
     // Update the slidenav buttons
     if(settings.slidenav) {
@@ -286,6 +303,8 @@ var myCarousel = (function() {
       new_current = 0;
     }
 
+    announceSlide = true;
+
     // If we advance to the next slide, the previous needs to be
     // visible to the user, so the third parameter is 'prev', not
     // next.
@@ -308,6 +327,8 @@ var myCarousel = (function() {
       new_current = length-1;
     }
 
+    announceSlide = true;
+
     // If we advance to the previous slide, the next needs to be
     // visible to the user, so the third parameter is 'next', not
     // prev.
@@ -320,7 +341,7 @@ var myCarousel = (function() {
     clearTimeout(timer);
     settings.animate = false;
     animationSuspended = false;
-    _this = carousel.querySelector('[data-stop], [data-start]');
+    var _this = carousel.querySelector('[data-stop], [data-start]');
     _this.innerHTML = '<span class="visuallyhidden">Start Animation </span>▶';
     _this.removeAttribute('data-stop');
     _this.setAttribute('data-start', 'true');
@@ -333,7 +354,7 @@ var myCarousel = (function() {
     timer = setTimeout(function () {
       nextSlide();
     }, 5000);
-    _this = carousel.querySelector('[data-stop], [data-start]');
+    var _this = carousel.querySelector('[data-stop], [data-start]');
     _this.innerHTML = '<span class="visuallyhidden">Stop Animation </span>￭';
     _this.setAttribute('data-stop', 'true');
     _this.removeAttribute('data-start');

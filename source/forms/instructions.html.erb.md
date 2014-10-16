@@ -127,7 +127,7 @@ Content outside form elements may be missed by screen readers that are in “For
 #### Using WAI-ARIA
 {:.ap}
 
-Another approach is to use the WAI-ARIA `aria-describedby` attribute to associate the instructions with form elements. At the time of writing, this approach may not be fully supported by all web browsers and assistive technologies.
+Another approach is to use the WAI-ARIA `aria-labelledby` attribute to associate the instructions with form elements. At the time of writing, this approach may not be fully supported by all web browsers and assistive technologies, especially by non-screen readers.
 
 {::nomarkdown}
 <%= sample_start %>
@@ -146,7 +146,7 @@ Another approach is to use the WAI-ARIA `aria-describedby` attribute to associat
   <div>
     <label for="expire4">Expiry date:</label>
     <span>
-      <input type="text" name="expire" id="expire4" aria-describedby="expDesc2">
+      <input type="text" name="expire" id="expire4" aria-labelledby="expDesc2">
       <span id="expDesc2">MM/YYYY</span>
     </span>
   </div>
@@ -162,23 +162,13 @@ Another approach is to use the WAI-ARIA `aria-describedby` attribute to associat
 ~~~ html
 <label for="expire">Expiry date:</label>
 <span>
-  <input type="text" name="expire" id="expire" aria-describedby="expDesc">
+  <input type="text" name="expire" id="expire" aria-labelledby="expDesc">
   <span id="expDesc">MM/YYYY</span>
 </span>
 ~~~
 
 {::nomarkdown}
 <%= code_end %>
-{:/nomarkdown}
-
-{::nomarkdown}
-<%= notes_start %>
-{:/nomarkdown}
-
-**Note:** A caveat of this approach is that it is mostly interpreted by screen readers, so that non-screen reader users may not gain the same benefit. Until such associations are more broadly interpreted it is often useful to position the instructions directly after the form controls.
-
-{::nomarkdown}
-<%= notes_end %>
 {:/nomarkdown}
 
 ### Placeholder text
@@ -225,7 +215,7 @@ Refer to the techniques described in [Hidden labels](labels.html#hidden) in case
 <%= notes_start %>
 {:/nomarkdown}
 
-**Note:** To provide more clarity, ensure that the style of placeholder text is distinguishable from regular text. This is commonly done by reducing the color contrast of placeholder text. However, if you do reduce the contrast, ensure that the placeholder text also meets the [minimum color contrast requirement of WCAG 2.0](/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast).
+**Note:** To provide more clarity, ensure that the style of placeholder text is distinguishable from regular text. This is commonly done by reducing the contrast ratio of placeholder text. Usually browsers take care of this. If custom styling of the placeholder text is needed, consider to meet the [minimum color contrast requirement of WCAG 2.0](/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast).
 
 {::nomarkdown}
 <%= notes_end %>
