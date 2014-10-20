@@ -7,11 +7,11 @@ wcag_techniques:
   - H4
 ---
 
-If the user should be able to access pages deep in the website’s structure, fly-out menus are frequently used to archive the desired effect. Such fly-out menus are often called dropdown menus.
+If there is a need to access pages deep in the website’s structure, fly-out menus are frequently used to allow this. Such fly-out menus are often called dropdown menus.
 
-As interactive components, fly-out menus need to be developed with accessibility in mind to make sure that they are operable using the keyboard as well. Hiding menu items not displayed from keyboards and assistive technologies makes sure that the menu can be easily navigated. For people with reduced dexterity it is also important that submenus don’t snap back immediately when the mouse leaves the clickable area.
+As interactive components, fly-out menus need to be developed with accessibility in mind to make sure that they are operable using the keyboard as well. Hiding menu items not displayed from assistive technologies makes sure that the menu can be easily navigated. For people with reduced dexterity it is also important that submenus don’t snap back immediately when the mouse leaves the clickable area.
 
-Usually the first-level menu items are links to individual pages whether they have a submenu or not. The submenu should then be duplicated as a secondary navigation on the linked web page to make sure that those pages are quickly reachable from there. Submenus are individual lists (`<ul>` or `<ol>`), nested in the parent’s list item (`<li>`).
+Usually the first-level menu items are links to individual pages whether they have a submenu or not. The submenu should then be duplicated as a secondary navigation on the linked web page to make sure that those pages are easily reachable from there. Submenus are individual lists (`<ul>` or `<ol>`), nested in the parent’s list item (`<li>`).
 
 Items containing a submenu should be marked in a way that is obvious. In the following example, the SpaceBears menu item has a submenu:
 
@@ -297,7 +297,7 @@ Array.prototype.forEach.call(menuItems, function(el, i){
 
 ### Improve keyboard support
 
-To improve Keyboard support, the decision has to be made if the top-level menu item should serve as a toggle for the menu for all users or be a link itself. Don’t just open the submenu as soon as the focus enters the parent menu item, as that would mean a keyboard user tediously needs to step through all the submenu links to get to the next top-level item.
+To improve keyboard support, consider whether the top-level menu item should serve as a toggle for the menu for all users or be a link itself. If the submenu is opened as soon as the focus enters the parent menu item, then a keyboard user needs to step tediously through all the submenu links to reach the next top-level item.
 
 #### Toggle submenu using the top-level menu item
 
@@ -500,7 +500,7 @@ Array.prototype.forEach.call(menuItems, function(el, i){
 
 #### Toggle submenu using a special “show submenu” button
 
-If the top-level menu item should stay a link to a page, adding a separate button that toggles the submenu is the most reliable way to address the issue.
+If the top-level menu item needs to be a link to a page then adding a separate button that toggles the submenu is the most reliable way to access the submenu.
 
 {::nomarkdown}
 <%= sample_start('show-overflow') %>
@@ -725,7 +725,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 <%= sample_end %>
 {:/nomarkdown}
 
-In the following code, a button is attached to every menu item link with a submenu. The click event listener is applied to this button and toggles the menu. The invisible button text is changed from show to hide submenu according to the state of the submenu.
+In the following code, a button is attached to every menu item link with a submenu. The click event listener is applied to this button and toggles the menu. The invisible button text is changed from ‘show submenu’ to ‘hide submenu’ according to the state of the submenu.
 
 {::nomarkdown}
 <%= code_start('','JavaScript') %>
@@ -939,7 +939,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
 ## Web application menus
 
-There are some WAI-ARIA roles that are helping assistive technology to interpret menus like the ones found in desktop software. When using the menu WAI-ARIA attributes, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus. This keyboard behavior doesn’t come with the WAI-ARIA attributes, but needs to be added using scripting.
+There are some WAI-ARIA roles that help assistive technology to replicate menus like the ones found in desktop software. When using the menu WAI-ARIA attributes, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus. WAI-ARIA attributes do not provide this keyboard behavior, but needs to be added using scripting.
 
 In addition to the `aria-expanded` and `aria-haspopup` attributes, the following roles are used in the example:
 
@@ -1336,8 +1336,9 @@ All top-level menu items close open submenus when they receive focus and reset t
 
 ~~~js
 Array.prototype.forEach.call(appsMenuItems, function(el, i){
-  /* code above */
-
+  ...
+	
+	/* When a top-level menu item receives focus, close all submenus */
   el.addEventListener("focus", function() {
     subIndex = 0;
     Array.prototype.forEach.call(appsMenuItems, function(el, i){
@@ -1345,6 +1346,7 @@ Array.prototype.forEach.call(appsMenuItems, function(el, i){
     });
   });
 
+	/* When a top-level menu item is ‘clicked’, toggle the state of the submenu */
   el.addEventListener("click",  function(event){
     if (this.getAttribute('aria-expanded') == 'false'
         || this.getAttribute('aria-expanded') ==  null) {
@@ -1356,6 +1358,7 @@ Array.prototype.forEach.call(appsMenuItems, function(el, i){
     return false;
   });
 
+	/* Handle any key presses on top-level menu items */
   el.addEventListener("keydown", function(event) {
     switch (event.keyCode) {
       case keys.right:
@@ -1396,7 +1399,7 @@ Array.prototype.forEach.call(appsMenuItems, function(el, i){
 <%= code_end %>
 {:/nomarkdown}
 
-Submenu items do behave differently when interacting with them on the keyboard, see the following table for details:
+Submenu items behave differently when interacting with them on the keyboard, see the following table for details:
 
 <table>
   <caption>Key mapping for submenu items</caption>
@@ -1459,7 +1462,10 @@ Submenu items do behave differently when interacting with them on the keyboard, 
 
 ~~~js
 Array.prototype.forEach.call(subMenuItems, function(el, i){
+	/* Allow scripts to set the focus of submenu items */
   el.setAttribute('tabindex', '-1');
+	
+	/* Handle any key presses on submenu items */
   el.addEventListener("keydown", function(event) {
       switch (event.keyCode) {
         case keys.tab:
@@ -1493,6 +1499,8 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
       event.stopPropagation();
       return false;
     });
+		
+	/* When a submenu item is ‘clicked’, enact the menu item function */
   el.addEventListener("click", function(event) {
       alert(this.innerHTML);
       event.preventDefault();
