@@ -5,15 +5,6 @@ order: 2
 wcag_success_criteria:
 wcag_techniques:
   - ARIA11
-<<<<<<< HEAD
----
-
-To help people navigate around the page, they need to be able to identify distinctive sections on the page. There are some more important parts of a page that should be marked up on every website, for example navigation. Both, HTML5 and WAI-ARIA, provide mechanisms to mark up such sections in a meaningful way. This page uses these techniques, for example, the main content is marked up using <code>&lt;code&gt;</code> and also given the attribute <code>role='main'</code>.
-
-HTML5 provides distinctive elements for certain types of page sections, for example, <code>&lt;header&gt;</code>, and <code>&lt;nav&gt;</code>. WAI-ARIA utilizes the `role` attribute to add such metadata, which is mainly aimed at assistive technologies. Sometimes the WAI-ARIA landmark roles map directly to HTML5 elements, but this is not always the case.
-
-Some HTML elements are should also carry implicit landmark roles, but this is not broadly supported at the time of writing, so the role should be stated explicitly. If HTML4 is used, `<div>` elements and/or headings are commonly used to identify page sections.
-=======
 technologies: HTML5, WAI-ARIA
 ---
 
@@ -22,17 +13,12 @@ To help people navigate around the page, they need to be able to identify distin
 Both, HTML5 and WAI-ARIA, provide mechanisms to mark up such sections in a meaningful way: HTML5 defines distinctive elements for certain types of page sections, for example, `<header>` and `<nav>`. WAI-ARIA utilizes the `role` attribute to add such information. It is mainly used by assistive technologies. Sometimes the WAI-ARIA landmark roles map directly to HTML5 elements, but this is not always the case.
 
 Some HTML elements are should also carry implicit landmark roles by default, but this is not broadly supported at the time of writing, so the role should be stated explicitly. If HTML4 is used, `<div>` elements with ARIA landmark roles and/or headings are commonly used to identify page sections.
->>>>>>> master
 
 ## Common page sections
 
 ### Main page header
 
-<<<<<<< HEAD
-Most websites have a logo and other information at the top of the page. Sometimes a search or navigation can be included. This main page header should be identified by an HTML5 `<header>` element and an explicit `banner` role. The banner role is not implicit for `<header>` elements as there could be several such elements but usually there will only be one `banner` role.
-=======
 Most websites have a logo and other information at the top of the page. Sometimes a search or navigation can be included. This main page header should be identified by an HTML5 `<header>` element and an explicit `banner` role. The banner role is not implicit for `<header>` elements as they can be used in other situations. Usually there will only be one `banner` role per page.
->>>>>>> master
 
 {::nomarkdown}
 <%= code_start %>
@@ -124,11 +110,7 @@ Any section of the document that supports the main content, yet is separate and 
 
 ### Search section
 
-<<<<<<< HEAD
-The `search` role marks the “search tool” of the website. This can include not only the actual input field, but also the search button and options. The form below contains a `<div>` element with a `search` role. There is no HTML5 equivalent for this role.
-=======
 The `search` role marks the “search tool” of the website. This should include not only the actual input field, but also the search button and options. The form below contains a `<div>` element with a `search` role. There is no HTML5 equivalent for this role.
->>>>>>> master
 
 {::nomarkdown}
 <%= sample_start %>

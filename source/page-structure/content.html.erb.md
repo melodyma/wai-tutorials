@@ -8,17 +8,6 @@ wcag_techniques:
   - H48
   - H49
 ---
-<<<<<<< HEAD
-Beside [headings](headings.html), there are a lot of ways to structure content to convey more meaning to assistive technologies.
-
-## Paragraphs
-
-The most simple form of text structuring is to write texts in paragraphs, adding rhythm and lightness to the page. The paragraph element (`<p>`) should be used, as it can be styled in a consistent way and also can be used to change the display by assistive technologies.
-
-## Lists
-
-HTML provides elements to create ordered and unordered lists. Use ordered lists if the content has instructions or information that is performed or used in sequence, for example how to prepare a meal. They are enumerated automatically by the browser. In an unordered list the order does not matter, for example on an ingredients list, the purchase order of ingredients is not relevant. Every list item in unordered lists is marked with a bullet. Both types of lists provide orientation for the user.
-=======
 Beside [headings](headings.html), there are a lot of ways to structure content using semantic HTML elements. This helps to keep the website extensible, the content reusable and also conveys more meaning to assistive technologies.
 
 ## Paragraphs
@@ -28,7 +17,6 @@ The most simple form of text structuring is to write texts in paragraphs, adding
 ## Lists
 
 HTML provides elements to mark up ordered and unordered lists. Use ordered lists if the content has instructions or information that is performed or used in sequence, for example how to prepare a meal. They are enumerated automatically by the browser. In an unordered list the order does not matter, for example on an ingredients list, the purchase order of ingredients is not relevant. Every list item in unordered lists is marked with a bullet. Both types of lists provide orientation for the user.
->>>>>>> master
 
 List items can contain all kinds of different HTML elements, including paragraphs, headings, and form elements.
 
@@ -302,10 +290,14 @@ q:after { content: ""; }
 ## Figures
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to table, which contains the sales volumes of a product. It allows users to dive deeper in the data or to skip it. The related content is wrapped in a `<figure>` element, a `<figcaption>` element is added that has the description of the content.
 =======
 Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to a table, which contains the sales volumes of a product. It allows users to dive deeper in the data or to skip it. The related content is wrapped in a `<figure>` element, a `<figcaption>` element is added that has the description of the content.
 >>>>>>> master
+=======
+Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to a table, which contains the sales volumes of a product. It allows users to dive deeper in the data or to skip it. The related content is wrapped in a `<figure>` element, a `<figcaption>` element is added that has the description of the content.
+>>>>>>> FETCH_HEAD
 
 At the time of writing, WAI-ARIA attributes `role="group"` and `aria-labelledby` are used to provide the information to assistive technologies in a consistent way.
 
