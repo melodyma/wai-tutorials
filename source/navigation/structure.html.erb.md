@@ -27,7 +27,7 @@ Users of assistive technology should be able to access the menu directly. To ena
 <%= code_end %>
 {:/nomarkdown}
 
-If HTML5 is used, the `<nav>` element is supposed to apply the landmark role implicitly. As some browser still don’t do this, and to improve the experience if an older browser is used, the navigation role is added as well.
+If HTML5 is used, the `<nav>` element should apply the landmark role implicitly. As some browser still don’t do this, and to improve the experience if an older browser is used, the navigation role can be added as well.
 
 {::nomarkdown}
 <%= code_start('','HTML') %>
@@ -46,7 +46,7 @@ If HTML5 is used, the `<nav>` element is supposed to apply the landmark role imp
 <%= notes_start %>
 {:/nomarkdown}
 
-**Note:** Role and other ARIA attributes won’t validate in HTML4. If valid HTML4 needs to be provided, the ARIA attributes can be added to the HTML dynamically using JavaScript. If that is also no possibility, [provide a heading](#using-a-hidden-heading) to enable users to find the menu easily.
+**Note:** Role and other ARIA attributes won’t validate in HTML4. If valid HTML4 needs to be provided, the ARIA attributes can be added to the HTML dynamically using JavaScript. If that is also not possibility, [provide a heading](#using-a-hidden-heading) to help users to find the menu more easily.
 
 {::nomarkdown}
 <%= notes_end %>
@@ -54,7 +54,7 @@ If HTML5 is used, the `<nav>` element is supposed to apply the landmark role imp
 
 ## Labeling navigations
 
-To make it easier for users of assistive technologies, menus should be labeled to help users find them and distinguish between them, if there are multiple navigational menus on a page. Users find menus by browsing the web page, but they could also use features of assistive technology to navigate directly to `navigation` landmarks or headings.
+Label menus to make it easier for users of assistive technologies more easily find and identify them. If there are multiple navigational menus on a page, labels help users distinguish between the different menu functions. Users find menus by browsing the web page, but they could also use features of assistive technology to navigate directly to `navigation` landmarks or headings.
 
 ### Using a (hidden) heading
 {:.ap}
