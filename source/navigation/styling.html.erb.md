@@ -12,13 +12,13 @@ wcag_techniques:
   - G183
 ---
 
-There are no definitive rules on how a menu should look like, but a few design patterns have emerged on how and where menus appear on the page, especially for main menus.
+There are no definitive rules on how a menu should look, but a few design patterns have emerged on how and where menus appear on the page, especially for main menus.
 
 While in-text links usually need an underline to help people with low vision or color blindness distinguish them from the surrounding text, this is not needed for links in menus if the menu can be clearly identified as such. If icons or images are used in links, an appropriate alternative text should be provided. See [Images Tutorial](/images/functional.html) for more advice.
 
 ## Vertical Menu
 
-A vertical menu provides space for a lot of links as all items can be easily reached by scrolling the page. Vertical menus are often in small columns on the side of the page which may lead to longer words overlapping the menu bar or get cut off, which is a potential accessibility barrier. This often happens when the user increases the font size, or when the website is translated into other languages.
+A vertical menu provides space for a lot of links as all items can be easily reached by scrolling the page. Vertical menus are often in small columns on the side of the page which may lead to longer words overlapping the menu bar or being cut off, which is a potential accessibility barrier. This often happens when the user increases the font size, or when the website is translated into other languages.
 
 {::nomarkdown}
 <%= sample_start %>
@@ -68,7 +68,7 @@ A vertical menu provides space for a lot of links as all items can be easily rea
 
 ## Horizontal menu
 
-If a menu has so few items that they can fit in one line on the screen, a horizontal menu bar may be used to display the links. Such menu bars are usually positioned near the top of the page. While this is a compact way to display a menu, horizontal space can be limited if users use small-screen devices or increase the font size. In such cases media queries can help to transform a horizontal into a vertical menu.
+Horizontal menu bars can be used where there are few items in the menu. Such menu bars are usually positioned near the top of the page. While this is a compact way to display a menu, horizontal space can be limited if users use small-screen devices or increase the font size. In such cases media queries can help to transform a horizontal into a vertical menu.
 
 {::nomarkdown}
 <%= sample_start %>
@@ -120,7 +120,24 @@ If a menu has so few items that they can fit in one line on the screen, a horizo
 
 ## Indicating hover and focus
 
-When the user focuses a menu item or hovers over one using the mouse pointer, the individual menu item should change so users know where the focus is or which menu item is hovered. In the examples in this tutorial, the menu item is inverted and the words are underlined.
+When the user focuses on a menu item or hovers over one using the mouse pointer, the individual menu item should change so users know where the focus is or which menu item is hovered. In the examples in this tutorial, the menu item is inverted and the words are underlined.
+
+{::nomarkdown}
+<%= code_start('','CSS') %>
+{:/nomarkdown}
+
+~~~ css
+nav a:hover,
+nav a:focus {
+  color: #036;
+  background-color: #fff;
+  text-decoration: underline;
+}
+~~~
+
+{::nomarkdown}
+<%= code_end %>
+{:/nomarkdown}
 
 ## Indicating the current page
 
