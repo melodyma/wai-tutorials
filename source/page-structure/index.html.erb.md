@@ -10,6 +10,7 @@ type: intro
 
 To help users orient themselves on web pages, the content and different areas need to be structured to help assistive technology identify them. This tutorial shows how to use HTML elements and WAI-ARIA attributes to allow users to navigate through the page and engage with the content efficiently.
 
+<<<<<<< HEAD
 * **[Headings](headings.html):** Convey the page’s structure by adding headings of different levels.
 
 * **[Content Structure](content.html):** Mark up content so assistive technology can present information in a way the user needs it.
@@ -20,6 +21,17 @@ To help users orient themselves on web pages, the content and different areas ne
 
 * **[Landmarks](landmarks.html):** By adding `roles` to HTML elements, the purpose of their content is conveyed to users.
 
+=======
+* **[Page Sections](sections.html):** Identify and mark section on pages using HTML5 and WAI-ARIA `roles` to make sure that the purpose of each individual section is conveyed to users.
+
+* **[Headings](headings.html):** Convey the page’s structure and sections of content by adding headings of different levels.
+
+* **[Content Structure](content.html):** Mark up content so it can be easily interpreted and adapted to user’s needs.
+
+* **[Styling](styling.html):** Apply a distinct hierarchy to the visual page’s design, so users are able to easily determine what each section of the page does.
+
+* **[In-page Navigation](in-page-navigation.html):** Provide navigation aids to help users to get around the page and discover the various sections of the page. Consider adding a “table of content” for longer pieces of content.
+>>>>>>> master
 
 ## Why is this important?
 

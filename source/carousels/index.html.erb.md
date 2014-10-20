@@ -12,7 +12,9 @@ wcag_success_criteria:
   - 4.1.2
 ---
 
-Carousels, commonly also referred to as “slide shows” or “sliders”, display a series of content items one at a time; for example, a series of news headlines. Carousels are usually animated, so that the displayed item is periodically rotated. This tutorial highlights the particular accessibility considerations for such carousels:
+Carousels, commonly also referred to as “slide shows” or “sliders”, display a series of content items one at a time; for example, a series of news headlines. Carousels often use animations to move from slide to slide which can be distracting for some users. They may also move so fast automatically that their content is hard or impossible to grasp, which is why every carousel should have a function to pause the animation.
+
+Also, carousels often pose traps to keyboard users, not allowing them to use the carousel. They may even get stuck inside, without a chance to leave the carousel and read the rest of the page. This tutorial highlights the particular accessibility considerations for such carousels:
 
 - **[Structure](structure.html):** Provide structural markup for the carousel and its items, and later enhance these structures with styling and scripting.
 
