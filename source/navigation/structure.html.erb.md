@@ -107,11 +107,7 @@ If HTML5 is used, the `<nav>` element is supposed to apply the landmark role imp
 
 ## Labeling navigations
 
-<<<<<<< HEAD
-Label menus to make it easier for users of assistive technologies more easily find and identify them. If there are multiple navigational menus on a page, labels help users distinguish between the different menu functions. Users find menus by browsing the web page, but they could also use features of assistive technology to navigate directly to `navigation` landmarks or headings.
-=======
 To make it easier to find menus, they should be labeled according to their individual function. This helps to distinguish between multiple navigational menus on a page. Such labels can be invisible to users that experience the website visually. Such labels can also be used by assistive technology to enable jumping directly to `navigation` landmarks or headings.
->>>>>>> master
 
 ### Using a (hidden) heading
 {:.ap}
